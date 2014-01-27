@@ -1,0 +1,48 @@
+folders:
+  dev:
+    path: '<%= ENV["USERPROFILE"] %>\Documents\Dev'
+    sub_folders: ['Heroku', 'Node', 'Python', 'Ruby', 'Test']
+  node:
+    path: '<%= ENV["USERPROFILE"] %>\Documents\Dev\Node'
+    sub_folders: ['CoffeeScript', 'Test']
+  python:
+    path: '<%= ENV["USERPROFILE"] %>\Documents\Dev\Python'
+    sub_folders: ['Test']
+  ruby:
+    path: '<%= ENV["USERPROFILE"] %>\Documents\Dev\Ruby'
+    sub_folders: ['Apps', 'Rails', 'Selenium', 'Sinatra', 'Test']
+
+files:
+  myRun.bat:
+    filename: 'myRun.bat'
+    path: '<%= ENV["USERPROFILE"] %>\Documents\Dev\Ruby\Apps\Setup'
+    content: ['alias=doskey /macros', 'dkey=subl C:\tmp\macinit', 'toDesk=cd %USERPROFILE%\Desktop$tcd', 'toDev=cd %USERPROFILE%\Documents\Dev$tcd', 'toNotes=cd %USERPROFILE%\Documents\Notes$tcd', 'toSinatra=cd %USERPROFILE%\Documents\Dev\Ruby\Sinatra$tcd', 'toRuby=cd %USERPROFILE%\Documents\Dev\Ruby$tcd', 'toCoffee=cd %USERPROFILE%\Documents\Dev\Node\CoffeeScript$tcd', 'simpleServer=python -m SimpleHTTPServer $1', 'localserver=ruby -run -e httpd . -p $1', 'mc=md $1$tcd $1$tcd', 'rd=rmdir /s /q $1', 'rm=del $1', 'mv=move $1 $2', 'l=dir $1 $2']
+  macinit:
+    filename: 'macinit'
+    path: '<%= ENV["USERPROFILE"] %>\Documents\Dev\Ruby\Apps\Setup'
+    content: ['@echo off', 'prompt $n:$g', 'doskey /macrofile=C:\tmp\macinit', '@echo on']
+  test:
+    filename: 'test.txt'
+    path: '<%= ENV["USERPROFILE"] %>\Documents\Dev\Ruby\Apps\Setup'
+    content: ['Line one', 'Line two', 'Line three', 'Line four']
+  sudo:
+    filename: 'sudo.cmd'
+    path: 'C:\tools'
+    content: ['@echo Set objShell = CreateObject("Shell.Application") > %temp%\sudo.tmp.vbs', '@echo args = Right("%*", (Len("%*") - Len("%1"))) >> %temp%\sudo.tmp.vbs', '@echo objShell.ShellExecute "%1", args, "", "runas" >> %temp%\sudo.tmp.vbs', '@cscript %temp%\sudo.tmp.vbs']
+
+registry:
+  path:
+    base: 'HKEY_LOCAL_MACHINE'
+    location: 'SYSTEM\CurrentControlSet\Control\Session Manager\Environment'
+    key: 'Path'
+    value: 'C:\tmp\myRun.bat'
+  editor:
+    base: 'HKEY_LOCAL_MACHINE'
+    location: 'SYSTEM\CurrentControlSet\Control\Session Manager\Environment'
+    key: 'EDITOR'
+    value: 'C:\Program Files\Sublime Text 3\subl.bat'
+  autorun:
+    base: 'HKEY_CURRENT_USER'
+    location: 'Software\Microsoft\Command Processor'
+    key: 'Autorun'
+    value: 'C:\tmp\myRun.bat'
