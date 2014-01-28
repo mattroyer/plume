@@ -22,5 +22,3 @@ settings['registry'].each do |registry|
   reg = Registry.new registry[1]['base'], registry[1]['location'], registry[1]['key'], registry[1]['value']
   reg.set_registry
 end
-
-# %w(C:\tools\sudo.cmd macinit myRun.bat test.txt).each { |file| File.delete(file) }
