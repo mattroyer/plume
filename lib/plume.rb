@@ -1,6 +1,6 @@
 require 'yaml'
 require 'erb'
-%w(file_tools registry).each { |lib| require_relative lib }
+%w(file_tools registry).each { |lib| require_relative "plume/#{lib}" }
 
 # Load example YAML settings file
 settings = YAML::load_file("../example/settings.yml")
