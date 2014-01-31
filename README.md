@@ -1,7 +1,7 @@
 Plume
 =====
 
-#### Portable Lite User-Managed Environment
+##### Portable Lite User-Managed Environment
 
 The goal of this project is to be able to have all of your system settings in a yaml file which feeds the software to create your settings for you in your preferred OS.
 
