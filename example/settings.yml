@@ -13,18 +13,14 @@ folders:
     sub_folders: ['Apps', 'Rails', 'Selenium', 'Sinatra', 'Test']
 
 files:
-  myRun.bat:
-    filename: 'myRun.bat'
-    path: '<%= ENV["USERPROFILE"] %>\Documents\Dev\Ruby\Apps\Plume'
-    content: ['alias=doskey /macros', 'dkey=subl C:\tmp\macinit', 'toDesk=cd %USERPROFILE%\Desktop$tcd', 'toDev=cd %USERPROFILE%\Documents\Dev$tcd', 'toNotes=cd %USERPROFILE%\Documents\Notes$tcd', 'toSinatra=cd %USERPROFILE%\Documents\Dev\Ruby\Sinatra$tcd', 'toRuby=cd %USERPROFILE%\Documents\Dev\Ruby$tcd', 'toCoffee=cd %USERPROFILE%\Documents\Dev\Node\CoffeeScript$tcd', 'simpleServer=python -m SimpleHTTPServer $1', 'localserver=ruby -run -e httpd . -p $1', 'mc=md $1$tcd $1$tcd', 'rd=rmdir /s /q $1', 'rm=del $1', 'mv=move $1 $2', 'l=dir $1 $2']
   macinit:
     filename: 'macinit'
-    path: '<%= ENV["USERPROFILE"] %>\Documents\Dev\Ruby\Apps\Plume'
+    path: '<%= ENV["SYSTEMDRIVE"] %>\tmp'
+    content: ['alias=doskey /macros', 'dkey=subl C:\tmp\macinit', 'toDesk=cd %USERPROFILE%\Desktop$tcd', 'toDev=cd %USERPROFILE%\Documents\Dev$tcd', 'toNotes=cd %USERPROFILE%\Documents\Notes$tcd', 'toSinatra=cd %USERPROFILE%\Documents\Dev\Ruby\Sinatra$tcd', 'toRuby=cd %USERPROFILE%\Documents\Dev\Ruby$tcd', 'toCoffee=cd %USERPROFILE%\Documents\Dev\Node\CoffeeScript$tcd', 'simpleServer=python -m SimpleHTTPServer $1', 'localserver=ruby -run -e httpd . -p $1', 'mc=md $1$tcd $1$tcd', 'rd=rmdir /s /q $1', 'rm=del $1', 'mv=move $1 $2', 'l=dir $1 $2']
+  myRun.bat:
+    filename: 'myRun.bat'
+    path: '<%= ENV["SYSTEMDRIVE"] %>\tmp'
     content: ['@echo off', 'prompt $n:$g', 'doskey /macrofile=C:\tmp\macinit', '@echo on']
-  test:
-    filename: 'test.txt'
-    path: '<%= ENV["USERPROFILE"] %>\Documents\Dev\Ruby\Apps\Plume'
-    content: ['Line one', 'Line two', 'Line three', 'Line four']
   sudo:
     filename: 'sudo.cmd'
     path: 'C:\tools'
