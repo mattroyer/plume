@@ -8,10 +8,13 @@ settings = YAML::load_file("../example/settings.yml")
 # Create all folders from settings.yml
 settings['folders'].each do |folder|
   current_folder = ERB.new(folder[1]['path']).result
-  subs = folder[1]['sub_folders']
-  subs.each do |sub|
-    current_sub = FileTools.new "#{current_folder}/#{sub}"
-    current_sub.create_folder
+  unless folder[1]['sub_folders'] == nil
+    subs = folder[1]['sub_folders']
+    subs.each do |sub|
+      current_sub = FileTools.new "#{current_folder}/#{sub}"
+    end
+  else
+    FileTools.new "#{current_folder}"
   end
 end
 
