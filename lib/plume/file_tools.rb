@@ -5,6 +5,8 @@ class FileTools
     @path = path
     @filename = filename
     @content = content
+
+    FileUtils.mkdir_p(@path)
   end
 
   def create_file
@@ -12,11 +14,11 @@ class FileTools
       puts "The file #{@filename} already exists."
     else
       begin
-      File.open("#{@path}/#{@filename}", "w") do |file|
-        @content.each do |line|
-          file.puts line
+        File.open("#{@path}/#{@filename}", "w") do |file|
+          @content.each do |line|
+            file.puts line
+          end
         end
-      end
       rescue Exception => e
         if e.message =~ /Permission Denied/i
           FileUtils.mkdir_p("#{ENV['USERPROFILE']}/Desktop/MoveManually")
@@ -30,9 +32,5 @@ class FileTools
         end
       end
     end
-  end
-
-  def create_folder
-    FileUtils.mkdir_p(@path)
   end
 end
