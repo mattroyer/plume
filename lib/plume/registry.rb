@@ -9,7 +9,7 @@ class Registry
   end
 
   def set_registry
-    command = Win32::Registry::const_get(@base).open @location, @Win32::Registry::KEY_ALL_ACCESS
+    command = Win32::Registry::const_get(@base).open @location, Win32::Registry::KEY_ALL_ACCESS
 
     if command[@key] == @value
       puts "Value already set to #{command[@key]}"
