@@ -11,16 +11,18 @@ class Registry
   def set_registry
     command = Win32::Registry::const_get(@base).open @location, Win32::Registry::KEY_ALL_ACCESS
 
-    if command[@key] == @value
+    keys = command[@key].split(';').map { |key| key.downcase }
+
+    if keys.any? { |key| key.include?(@value.downcase) }
       puts "Value already set to #{command[@key]}"
     else
-      command[@key] = @value
+      command[@key] = "#{get_registry};#{@value}"
     end
   end
 
   def get_registry
     command = Win32::Registry::const_get(@base).open @location, Win32::Registry::KEY_ALL_ACCESS
 
-    puts "Value is: #{command[@key]}"
+    command[@key]
   end
 end
